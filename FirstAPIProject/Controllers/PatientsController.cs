@@ -56,20 +56,20 @@ namespace FirstAPIProject.Controllers
 
 
         [HttpGet("/Api/Patients/SortByName")]
-        public async Task<IEnumerable<Patient>> GetPatientsSortedByNameAsync (string name)
+        public async Task<IEnumerable<Patient>> GetPatientsSortedByNameAsync ()
         {
             return await db.Patients.OrderBy(p => p.Name).ToListAsync();
         }
 
         [HttpGet("/Api/Patients/SortByAge")]
-        public async Task<IEnumerable<Patient>> GetPatientsSortedByAgeAsync(string name)
+        public async Task<IEnumerable<Patient>> GetPatientsSortedByAgeAsync()
         {
             return await db.Patients.OrderBy(p => p.Age).ToListAsync();
         }
 
         [HttpGet("/Api/Patients/ShowMales")]
 
-        public async Task<IEnumerable<Patient>> GetMalePatient(string name)
+        public async Task<IEnumerable<Patient>> GetMalePatient()
         {
             return await db.Patients.Where(p => p.Gender == (int)Gender.Male).ToListAsync();
         }
@@ -77,7 +77,7 @@ namespace FirstAPIProject.Controllers
 
         [HttpGet("/Api/Patients/ShowFemales")]
 
-        public async Task<IEnumerable<Patient>> GetFemalePatient(string name)
+        public async Task<IEnumerable<Patient>> GetFemalePatient()
         {
             return await db.Patients.Where(p => p.Gender == (int)Gender.Female).ToListAsync();
         }
