@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using FirstAPIProject.Validators;
 using Microsoft.EntityFrameworkCore;
 
 namespace FirstAPIProject.Models;
@@ -19,6 +20,8 @@ public partial class Appointment
 
     public int DoctorId { get; set; }
 
+
+    [DateInFuture(ErrorMessage = "Please Enter Future Date")]
     public DateTime AppointmentDateTime { get; set; }
 
     [Required]
