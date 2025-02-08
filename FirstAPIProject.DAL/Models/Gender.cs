@@ -1,4 +1,4 @@
-﻿namespace FirstAPIProject.Models
+﻿namespace FirstAPIProject.DAL.Models
 {
     public enum Gender
     {

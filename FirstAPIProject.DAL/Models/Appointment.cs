@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using FirstAPIProject.Validators;
 using Microsoft.EntityFrameworkCore;
 
-namespace FirstAPIProject.Models;
+namespace FirstAPIProject.DAL.Models;
 
 [Index("DoctorId", Name = "IX_Appointments_DoctorId")]
 [Index("PatientId", Name = "IX_Appointments_PatientId")]

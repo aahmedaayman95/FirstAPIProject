@@ -1,10 +1,11 @@
-﻿using FirstAPIProject.Models;
+﻿using FirstAPIProject.DAL.Models;
+using FirstAPIProject.DAL.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using FirstAPIProject.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Reflection;
+using FirstAPIProject.DAL.Repo;
 
 namespace FirstAPIProject.Controllers
 {
@@ -13,15 +14,18 @@ namespace FirstAPIProject.Controllers
     public class PatientsController : ControllerBase
     {
         private ClinicDBContext db;
-        public PatientsController(ClinicDBContext _db)
+        public IPatientRepository patientRepository;
+        public PatientsController(ClinicDBContext _db , IPatientRepository _patientRepository)
         {
             db = _db;
+            patientRepository = _patientRepository;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Patient>> GetAll()
         {
-            return await db.Patients.ToListAsync();
+            return await patientRepository.GetAllAsync();
+            //return await db.Patients.ToListAsync();
 
             //IEnumerable<Patient> patients;
 

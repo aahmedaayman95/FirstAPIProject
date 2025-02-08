@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="Managers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FirstAPIProject.DAL\FirstAPIProject.DAL.csproj" />
+  </ItemGroup>
+
+</Project>

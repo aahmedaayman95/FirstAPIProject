@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace FirstAPIProject.Models;
+namespace FirstAPIProject.DAL.Models;
 
-public partial class Doctor
+public partial class Patient
 {
     [Key]
     public int Id { get; set; }
@@ -16,12 +16,13 @@ public partial class Doctor
     [Required]
     public string Name { get; set; }
 
-    [Required]
-    public string Specialization { get; set; }
+    public int Age { get; set; }
+
+    public int Gender { get; set; }
 
     [Required]
     public string ContactInfo { get; set; }
 
-    [InverseProperty("Doctor")]
+    [InverseProperty("Patient")]
     public virtual ICollection<Appointment> Appointments { get; set; } = new List<Appointment>();
 }
